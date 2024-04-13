@@ -56,3 +56,45 @@ TEST(ivanchenko_a_metrics, linf_zero_if_equal) {
     
     EXPECT_EQ(expected, metrics::linf(v1, v2));
 }
+
+TEST(ivanchenko_a_metrics, l1_throws_if_different_size) {
+    std::vector<float> v1, v2;
+    
+    v1.resize(10);
+    v2.resize(9);
+    
+    EXPECT_ANY_THROW(metrics::l1(v1, v2));
+}
+TEST(ivanchenko_a_metrics, l2_throws_if_different_size) {
+    std::vector<float> v1, v2;
+    
+    v1.resize(10);
+    v2.resize(9);
+    
+    EXPECT_ANY_THROW(metrics::l2(v1, v2));
+}
+TEST(ivanchenko_a_metrics, l3_throws_if_different_size) {
+    std::vector<float> v1, v2;
+    
+    v1.resize(10);
+    v2.resize(9);
+    
+    EXPECT_ANY_THROW(metrics::l3(v1, v2));
+}
+TEST(ivanchenko_a_metrics, l4_throws_if_different_size) {
+    std::vector<float> v1, v2;
+    
+    v1.resize(10);
+    v2.resize(9);
+    
+    EXPECT_ANY_THROW(metrics::l4(v1, v2));
+}
+TEST(ivanchenko_a_metrics, linf_throws_if_different_size) {
+    std::vector<float> v1, v2;
+    
+    v1.resize(10);
+    v2.resize(9);
+    
+    EXPECT_ANY_THROW(metrics::linf(v1, v2));
+}
+
