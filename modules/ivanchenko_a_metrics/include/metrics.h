@@ -5,11 +5,12 @@
 #include <stdexcept>
 #include <utility>
 #include <vector>
+#include <algorithm>
 
 namespace metrics {
-    size_t l1(std::vector<float> v1, std::vector<float> v2);
-    size_t l2(std::vector<float> v1, std::vector<float> v2);
-    size_t l3(std::vector<float> v1, std::vector<float> v2);
-    size_t l4(std::vector<float> v1, std::vector<float> v2);
-    size_t linf(std::vector<float> v1, std::vector<float> v2);
+    float l1(std::vector<float> v1, std::vector<float> v2);
+    float l2(std::vector<float> v1, std::vector<float> v2);
+    float l3(std::vector<float> v1, std::vector<float> v2);
+    float l4(std::vector<float> v1, std::vector<float> v2);
+    float linf(std::vector<float> v1, std::vector<float> v2);
 }

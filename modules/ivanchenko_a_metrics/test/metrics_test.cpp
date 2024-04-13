@@ -3,58 +3,58 @@
 
 TEST(ivanchenko_a_metrics, l1_zero_if_equal) {
     std::vector<float> v1, v2;
-    size_t expected;
+    float expected;
 
     v1 = {0.1, 0.2, 0.3};
     v2 = {0.1, 0.2, 0.3};
 
     expected = 0;
     
-    EXPECT_EQ(expected, metrics::l1(v1, v2));
+    EXPECT_FLOAT_EQ(expected, metrics::l1(v1, v2));
 }
 TEST(ivanchenko_a_metrics, l2_zero_if_equal) {
     std::vector<float> v1, v2;
-    size_t expected;
+    float expected;
 
     v1 = {0.1, 0.2, 0.3};
     v2 = {0.1, 0.2, 0.3};
 
     expected = 0;
     
-    EXPECT_EQ(expected, metrics::l2(v1, v2));
+    EXPECT_FLOAT_EQ(expected, metrics::l2(v1, v2));
 }
 TEST(ivanchenko_a_metrics, l3_zero_if_equal) {
     std::vector<float> v1, v2;
-    size_t expected;
+    float expected;
 
     v1 = {0.1, 0.2, 0.3};
     v2 = {0.1, 0.2, 0.3};
 
     expected = 0;
     
-    EXPECT_EQ(expected, metrics::l3(v1, v2));
+    EXPECT_FLOAT_EQ(expected, metrics::l3(v1, v2));
 }
 TEST(ivanchenko_a_metrics, l4_zero_if_equal) {
     std::vector<float> v1, v2;
-    size_t expected;
+    float expected;
 
     v1 = {0.1, 0.2, 0.3};
     v2 = {0.1, 0.2, 0.3};
 
     expected = 0;
     
-    EXPECT_EQ(expected, metrics::l4(v1, v2));
+    EXPECT_FLOAT_EQ(expected, metrics::l4(v1, v2));
 }
 TEST(ivanchenko_a_metrics, linf_zero_if_equal) {
     std::vector<float> v1, v2;
-    size_t expected;
+    float expected;
 
     v1 = {0.1, 0.2, 0.3};
     v2 = {0.1, 0.2, 0.3};
 
     expected = 0;
     
-    EXPECT_EQ(expected, metrics::linf(v1, v2));
+    EXPECT_FLOAT_EQ(expected, metrics::linf(v1, v2));
 }
 
 TEST(ivanchenko_a_metrics, l1_throws_if_different_size) {
@@ -98,3 +98,56 @@ TEST(ivanchenko_a_metrics, linf_throws_if_different_size) {
     EXPECT_ANY_THROW(metrics::linf(v1, v2));
 }
 
+TEST(ivanchenko_a_metrics, l1_not_zero_if_not_equal) {
+    std::vector<float> v1, v2;
+    float zero;
+
+    v1 = {0.1, 0.2, 0.3};
+    v2 = {0.1, 0.22, 0.3};
+
+    zero = 0;
+    
+    EXPECT_NE(zero, metrics::l1(v1, v2));
+}
+TEST(ivanchenko_a_metrics, l2_not_zero_if_not_equal) {
+    std::vector<float> v1, v2;
+    float zero;
+
+    v1 = {0.1, 0.2, 0.3};
+    v2 = {0.1, 0.22, 0.3};
+
+    zero = 0;
+    
+    EXPECT_NE(zero, metrics::l2(v1, v2));
+}
+TEST(ivanchenko_a_metrics, l3_not_zero_if_not_equal) {
+    std::vector<float> v1, v2;
+    float zero;
+
+    v1 = {0.1, 0.2, 0.3};
+    v2 = {0.1, 0.22, 0.3};
+
+    zero = 0;
+    
+    EXPECT_NE(zero, metrics::l3(v1, v2));
+}
+TEST(ivanchenko_a_metrics, l4_not_zero_if_not_equal) {
+    std::vector<float> v1, v2;
+    float zero;
+
+    v1 = {0.1, 0.2, 0.3};
+    v2 = {0.1, 0.22, 0.3};
+    zero = 0;
+    
+    EXPECT_NE(zero, metrics::l4(v1, v2));
+}
+TEST(ivanchenko_a_metrics, linf_not_zero_if_not_equal) {
+    std::vector<float> v1, v2;
+    float zero;
+
+    v1 = {0.1, 0.2, 0.3};
+    v2 = {0.1, 0.22, 0.3};
+    zero = 0;
+
+    EXPECT_NE(zero, metrics::linf(v1, v2));
+}
