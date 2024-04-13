@@ -3,9 +3,7 @@
 #pragma once
 
 #include <stdexcept>
-#include <utility>
 #include <vector>
-#include <algorithm>
 
 namespace metrics {
     float l1(std::vector<float> v1, std::vector<float> v2);
